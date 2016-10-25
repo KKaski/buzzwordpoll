@@ -25,6 +25,15 @@ exports.list = function(req, res) {
 	});
 };
 
+// JSON API for clear of polls
+exports.clear = function(req, res) {
+	// Drop polls Mongo table 
+	Poll.remove({}, function(err) { 
+   console.log('collection removed') 
+   res.render('index');
+});
+};
+
 // JSON API for getting a single poll
 exports.poll = function(req, res) {
 	// Poll ID comes in the URL

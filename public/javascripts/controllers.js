@@ -40,11 +40,11 @@ function PollNewCtrl($scope, $location, Poll) {
 	// Define an empty poll model object
 	$scope.poll = {
 		question: 'Buzzwords',
-		choices: [ { text: 'PaaS' }, { text: 'DevOps' }, { text: 'GIT' }.{ text: 'Micro Service' },{ text: 'REST' },
+		choices: [ { text: 'PaaS' }, { text: 'DevOps' }, { text: 'GIT' },{ text: 'Micro Service' },{ text: 'REST' },
 					{ text: 'R' },{ text: 'Polyglot' },{ text: 'Spark' },{ text: 'MVP' },{ text: 'TDD' },
 					{ text: 'Hybrid Cloud' },{ text: 'System Of Engagement' },{ text: 'Agile' },
 					{ text: 'Design Thinking' },{ text: 'NoSQL' },{ text: 'Docker' },{ text: 'Swagger' },
-					{ text: 'Machine Learning' },{ text: 'JSON' },{ text: 'Scrum' }]
+					{ text: 'Machine Learning' },{ text: 'JSON' },{ text: 'Scrum' },{ text: 'All of them' }]
 	};
 	
 	// Method to add an additional choice option
