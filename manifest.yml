@@ -1,0 +1,11 @@
+---
+applications:
+- name: bluemixworkshop1
+  mem: 256M
+  instances: 1
+  host: bluemixworkshop1
+  domain: mybluemix.net
+  path: .
+  command: npm start
+  services:
+    - bluemixpollsdb
