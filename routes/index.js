@@ -48,6 +48,8 @@ exports.poll = function(req, res) {
 
 			// Loop through poll choices to determine if user has voted
 			// on this poll, and if so, what they selected
+			//This has been removed by Kimmo to allow users to give many votes
+			/*
 			for(c in poll.choices) {
 				var choice = poll.choices[c]; 
 
@@ -61,7 +63,8 @@ exports.poll = function(req, res) {
 					}
 				}
 			}
-
+			*/
+			
 			// Attach info about user's past voting on this poll
 			poll.userVoted = userVoted;
 			poll.userChoice = userChoice;

@@ -9,7 +9,7 @@
 	<p class="lead">Please select one of the following options:</p>
 
 	<form role="form" ng-submit="vote()">
-		<div ng-repeat="choice in poll.choices" class="radio">
+		<div ng-repeat="choice in poll.choices" class="rario">
 			<label>
 				<input type="radio" name="choice" ng-model="poll.userVote" value="{{choice._id}}">
 				{{choice.text}}
