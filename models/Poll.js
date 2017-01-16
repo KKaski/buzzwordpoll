@@ -6,6 +6,7 @@ var voteSchema = new mongoose.Schema({ ip: 'String' });
 // Subdocument schema for poll choices
 var choiceSchema = new mongoose.Schema({ 
 	text: String,
+	selected: Boolean,
 	votes: [voteSchema]
 });
 

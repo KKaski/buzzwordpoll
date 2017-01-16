@@ -104,17 +104,24 @@ exports.vote = function(socket) {
 		var ip = socket.handshake.headers['x-forwarded-for'] || socket.handshake.address.address;
 		
 		Poll.findById(data.poll_id, function(err, poll) {
-			var choice = poll.choices.id(data.choice);
-			choice.votes.push({ ip: ip });
 			
+			//Loop through the give votes
+			for(var k=0;k<data.choices.length;k++)
+			{
+				var choice = poll.choices.id(data.choices[k]);
+				choice.votes.push({ ip: ip });
+			}
+
 			poll.save(function(err, doc) {
 				var theDoc = { 
 					question: doc.question, _id: doc._id, choices: doc.choices, 
 					userVoted: false, totalVotes: 0 
 				};
+			
 
 				// Loop through poll choices to determine if user has voted
 				// on this poll, and if so, what they selected
+				
 				for(var i = 0, ln = doc.choices.length; i < ln; i++) {
 					var choice = doc.choices[i]; 
 

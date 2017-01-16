@@ -16,6 +16,7 @@ function PollItemCtrl($scope, $routeParams, socket, Poll) {
 	
 	socket.on('vote', function(data) {
 		console.dir(data);
+		console.log("Debug KK:"+data);
 		if(data._id === $routeParams.pollId) {
 			$scope.poll.choices = data.choices;
 			$scope.poll.totalVotes = data.totalVotes;
@@ -26,9 +27,19 @@ function PollItemCtrl($scope, $routeParams, socket, Poll) {
 		var pollId = $scope.poll._id,
 				choiceId = $scope.poll.userVote;
 		
-		if(choiceId) {
-			var voteObj = { poll_id: pollId, choice: choiceId };
+		var choiceIds = [];
+		var p = $scope.poll.choices;
+		for (var key in p) {
+  			if(p[key].selected) {
+				choiceId=p[key]._id;
+				choiceIds.push(choiceId);
+			  }
+		}
+
+		if(choiceIds.length>0) {
+			var voteObj = { poll_id: pollId, choices: choiceIds };
 			socket.emit('send:vote', voteObj);
+			
 		} else {
 			alert('You must select an option to vote for');
 		}
